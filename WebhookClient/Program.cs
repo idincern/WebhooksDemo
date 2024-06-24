@@ -1,5 +1,4 @@
 using WebhookClient.Application.Interfaces;
-using WebhookClient.Domain.Interfaces;
 using WebhookClient.Application.Services;
 using WebhookClient.Infrastructure.Repositories;
 

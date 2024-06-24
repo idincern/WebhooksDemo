@@ -4,7 +4,6 @@ using WebhookClient.API.Models;
 using WebhookClient.Application.DTOs;
 using WebhookClient.Application.Interfaces;
 using WebhookClient.Domain.Entities;
-using WebhookClient.Domain.Interfaces;
 
 namespace WebhookClient.Application.Services
 {

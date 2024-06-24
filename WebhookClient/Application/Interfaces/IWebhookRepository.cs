@@ -1,7 +1,7 @@
 ﻿using WebhookClient.Application.DTOs;
 using WebhookClient.Domain.Entities;
 
-namespace WebhookClient.Domain.Interfaces
+namespace WebhookClient.Application.Interfaces
 {
     public interface IWebhookRepository
     {
