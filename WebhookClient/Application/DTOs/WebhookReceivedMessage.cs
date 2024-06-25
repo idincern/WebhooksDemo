@@ -1,10 +1,10 @@
 ﻿namespace WebhookClient.Application.DTOs
 {
-    public interface WebhookReceivedMessage
+    public class WebhookReceivedMessage 
     {
-        Guid Id { get; }
-        int DeliveryId { get; }
-        string Status { get; }
-        DateTime Timestamp { get; }
-    }
+        public int DeliveryId { get; set; }
+        public string Status { get; set; } = default!;
+        public string EventType { get; set; } = default!;
+        public DateTime Timestamp {  get; set; }
+    };
 }

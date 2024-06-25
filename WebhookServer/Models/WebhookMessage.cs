@@ -8,5 +8,7 @@ namespace WebhookServer.Models
         public int DeliveryId { get; set; }
         [Required]
         public string Status { get; set; } = default!;
+        [Required]
+        public string EventType { get; set; } = default!;
     }
 }

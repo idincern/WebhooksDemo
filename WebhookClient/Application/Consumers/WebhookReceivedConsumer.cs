@@ -8,30 +8,26 @@ namespace WebhookClient.Application.Consumers
     public class WebhookReceivedConsumer : IConsumer<WebhookReceivedMessage>
     {
         private readonly IWebhookService _webhookService;
-        private readonly ILogger<WebhookReceivedConsumer> _logger;
 
-        public WebhookReceivedConsumer(IWebhookService webhookService, ILogger<WebhookReceivedConsumer> logger)
+        public WebhookReceivedConsumer(IWebhookService webhookService)
         {
             _webhookService = webhookService;
-            _logger = logger;
         }
 
         public async Task Consume(ConsumeContext<WebhookReceivedMessage> context)
         {
             var message = context.Message;
-            _logger.LogInformation($"Processing webhook: {message.DeliveryId}");
+            await Console.Out.WriteLineAsync($"Processing webhook: {message.DeliveryId}");
 
-            var receivedDto = new WebhookReceivedDto(message.DeliveryId, message.Status);
-
-            var response = _webhookService.ProcessWebhook(receivedDto);
+            var response = _webhookService.ProcessWebhook(message);
 
             if (response.StatusCodes == System.Net.HttpStatusCode.OK)
             {
-                _logger.LogInformation($"Webhook processed successfully: {message.DeliveryId}");
+                await Console.Out.WriteLineAsync($"Webhook processed successfully: {message.DeliveryId}");
             }
             else
             {
-                _logger.LogWarning($"Webhook processing failed: {message.DeliveryId}");
+                await Console.Out.WriteLineAsync($"Webhook processing failed: {message.DeliveryId}");
             }
 
             await Task.CompletedTask;
