@@ -1,6 +1,4 @@
-# WebhookTraining
-
-Server creates message end sends it over to the Client(postman can also be used), which is the webhook, using HttpClient. Using MassTransit and RabbitMQ to publish and consume the webhook messages.
+Using MassTransit.RabbitMQ to publish and consume the incoming webhook messages.
 
 Requirements:
 ```sh
